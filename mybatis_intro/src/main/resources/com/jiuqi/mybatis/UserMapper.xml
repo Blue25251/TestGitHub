@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jiuqi.mybatis.dao.UserMapper">
+    <!--保存-->
+    <select id="save" parameterType="com.jiuqi.mybatis.entity.User">
+        insert into t_user values(default ,#{name},#{pwd},#{birthday},#{age})
+    </select>
+    <!--修改-->
+    <update id="update" parameterType="com.jiuqi.mybatis.entity.User">
+        update t_user set name=#{name},pwd=#{pwd},age=#{age},birthday=#{birthday} where id=#{id}
+    </update>
+    <!--删除-->
+    <delete id="delete" parameterType="int">
+        delete from t_user where id=#{id}
+    </delete>
+    <!--查询所有-->
+    <select id="findAll" resultType="com.jiuqi.mybatis.entity.User">
+        select * from t_user
+    </select>
+</mapper>
